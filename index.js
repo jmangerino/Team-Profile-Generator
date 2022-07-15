@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateTeam = require('./src/template');
+const generateHTML = require('./src/template');
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -37,6 +37,7 @@ const addManager = () => {
         const { name, id, email, officeNumber } = managerInput;
         const manager = new Manager (name, id, email, officeNumber);
         teamArray.push(manager);
+        console.log(manager)
     })
 };
 
@@ -80,7 +81,8 @@ const addEmployee = () => {
         {
             type: 'confirm',
             name: 'confirmAddEmployee',
-            message: "Would you like to add any more employee's?"
+            message: "Would you like to add any more employee's?",
+            default: false
         },
     ])
     .then(employeeData => {
@@ -89,9 +91,13 @@ const addEmployee = () => {
 
         if (role === 'Engineer') {
             employee = new Engineer (name, id, email, github);
+            
             console.log(employee);
+
         } else if (role === 'Intern') {
+            
             employee = new Intern (name, id, email, school);
+            
             console.log(employee);
         }
 
@@ -119,7 +125,7 @@ const writeFile = data => {
 addManager()
 .then(addEmployee)
 .then(teamArray => {
-    return generateTeam(teamArray);
+    return generateHTML(teamArray);
 })
 .then(pageHTML => {
     return writeFile(pageHTML);
