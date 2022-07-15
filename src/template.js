@@ -12,8 +12,8 @@
                 <p class="officeNumber">Office Number ${manager.officeNumber}</p>
             </div>
         </div>
-            `;
-    };
+            `
+    }
 
     const generateEngineer = function (engineer) {
         return `
@@ -28,8 +28,8 @@
                 <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
             </div>
         </div>
-        `;
-    };
+        `
+    }
 
     
     const generateIntern = function (intern) {
@@ -45,8 +45,8 @@
                 <p class="school">School: ${intern.school}</p>
             </div>
         </div>
-            `;
-    };
+            `
+    }
 
     generateHTML = (data) => {
         pageArray = [];
@@ -61,13 +61,13 @@
                 pageArray.push(managerCard);
             }
 
-            if (role === 'Engineer') {
+            else if (role === 'Engineer') {
                 const engineerCard = generateEngineer(employee);
-    
+                
                 pageArray.push(engineerCard);
             }
      
-            if (role === 'Intern') {
+            else if (role === 'Intern') {
                 const internCard = generateIntern(employee);
     
                 pageArray.push(internCard);

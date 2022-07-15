@@ -87,27 +87,29 @@ const addEmployee = () => {
     ])
     .then(employeeData => {
         let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
-        let employee;
+       
 
         if (role === 'Engineer') {
-            employee = new Engineer (name, id, email, github);
-            
-            console.log(employee);
-
+        
+            const engineer = new Engineer (name, id, email, github);
+            console.log(engineer);
+            teamArray.push(engineer)
         } else if (role === 'Intern') {
             
-            employee = new Intern (name, id, email, school);
-            
-            console.log(employee);
+        
+            const intern = new Intern (name, id, email, school);
+            console.log(intern);
+            teamArray.push(intern)
         }
 
-        teamArray.push(employee);
-
+        
+        
         if (confirmAddEmployee) {
             return addEmployee(teamArray);
         } else {
             return teamArray
         }
+        
     })
 };
 
