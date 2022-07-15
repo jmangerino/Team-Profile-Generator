@@ -18,11 +18,15 @@
   ## Usage
   You will use inquirer to answer questions in the command line and Jest running the unit tests.
 
+  [walkthrough video](https://drive.google.com/file/d/1ALhaK1POr-aSjd-K5BN4tC84O0h7SLQl/view)
+
+  <img src=".//assets/Screenshot 2022-07-15 170913.jpg" width=600 height=300>
+
   ## Contribution
   No guidelines right now.
 
   ## Tests
-  Going to update later
+  Tests were done by using Jest in the command line.
 
   ## Liscense
   MIT
